@@ -128,6 +128,9 @@ footer p{margin:0 0 8px;max-width:44em}
   table{width:100%;border-collapse:collapse;font-size:10.5pt}
   th{text-align:left;border-bottom:1.5pt solid #1F2A24;padding:4pt}
   td{border-bottom:.75pt solid #CFC6B2;padding:5pt 4pt;vertical-align:top}
+  tr{break-inside:avoid}
+  #printSheet a{color:#2F5A3E;text-decoration:underline}
+  .p-more{margin:10pt 0 0;font-size:11pt;font-weight:700;color:#2F5A3E}
   .p-foot{display:flex;gap:24pt;margin-top:18pt;align-items:center;break-inside:avoid}
   .p-foot div{display:flex;gap:10pt;align-items:center;font-size:10.5pt}
   .p-foot svg{width:72pt;height:72pt}
@@ -200,6 +203,7 @@ const CONFIG = {
   pageUrl: "https://springhillwellnesscollective.github.io",
   meetupType: "Collective Meetup",
   nextMonthFromDay: 25,  // "Print next month" appears from this day of the month
+  maxPrintRows: 12,      // events that fit on the one-page handout; the rest are on the web page
   timeZone: "America/New_York"
 };
 /* ================================== */
@@ -356,7 +360,10 @@ function eventsInMonth(y,m){
 function printMonth(y,m){
   const items=eventsInMonth(y,m);
   const meet=items.find(isMeetup);
-  const others=items.filter(e=>!isMeetup(e));
+  const allOthers=items.filter(e=>!isMeetup(e));
+  const others=allOthers.slice(0,CONFIG.maxPrintRows);
+  const extra=allOthers.length-others.length;
+  const shortUrl=esc(CONFIG.pageUrl.replace(/^https?:\/\//,""));
   const rows=others.map(e=>{
     const d=e.repeats==="weekly"?`Every ${DAYS[e.dateObj.getDay()]}`:`${DAYS[e.dateObj.getDay()]} ${MONTHS[e.dateObj.getMonth()]} ${e.dateObj.getDate()}`;
     return `<tr><td>${esc(d)}<br>${esc(timeStr(e))}</td><td><strong>${esc(e.title)}</strong>${e.cost?`<br>${esc(e.cost)}`:""}</td><td>${esc(e.host)}</td><td>${esc(e.location)}</td></tr>`;
@@ -366,14 +373,15 @@ function printMonth(y,m){
     <div class="p-meet">
       <div class="lbl">The Collective Meetup</div>
       ${meet?`<h2>${esc(meet.title)}</h2>${meet.host?`<p><strong>${esc(meet.host)}</strong></p>`:""}<p>${esc(whenLine(meet))}</p>${meet.location?`<p>${esc(meet.location)}</p>`:""}<p>${esc(meet.cost||"Free")}</p>`
-            :`<h2>Coming soon</h2><p>See the date and topic at ${esc(CONFIG.pageUrl.replace(/^https?:\/\//,""))}</p>`}
+            :`<h2>Coming soon</h2><p>See the date and topic at <a href="${esc(CONFIG.pageUrl)}" style="color:#F6F2E9">${shortUrl}</a></p>`}
     </div>
     <h3 class="p-sec">Other Local Wellness Events</h3>
     <p class="p-note">Hosted by local practitioners and wellness businesses. Register with the host directly.</p>
     ${rows?`<table><thead><tr><th style="width:18%">When</th><th>Event</th><th style="width:22%">Host</th><th style="width:24%">Where</th></tr></thead><tbody>${rows}</tbody></table>`:`<p>No other events listed yet for ${MONTHS_LONG[m]}.</p>`}
+    ${extra>0?`<p class="p-more">Plus ${extra} more event${extra===1?"":"s"} this month. See them all at <a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a> or scan the QR code below.</p>`:""}
     <div class="p-foot">
-      <div>${qrSvg(CONFIG.pageUrl)}<span><strong>See all events</strong><br>${esc(CONFIG.pageUrl.replace(/^https?:\/\//,""))}</span></div>
-      <div>${qrSvg(CONFIG.formUrl)}<span><strong>Practitioners:</strong><br>join the Collective and list your events free</span></div>
+      <div>${qrSvg(CONFIG.pageUrl)}<span><strong>See all events</strong><br><a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a></span></div>
+      <div>${qrSvg(CONFIG.formUrl)}<span><strong>Practitioners:</strong><br><a href="${esc(CONFIG.formUrl)}">join the Collective</a> and list your events free</span></div>
     </div>
     <p class="p-fine">Other Local Wellness Events are hosted independently. Information shared is educational and not a substitute for medical advice.</p>`;
   window.print();
