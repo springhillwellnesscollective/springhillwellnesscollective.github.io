@@ -3,339 +3,329 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Upcoming Events | Spring Hill Wellness Collective</title>
+<title>Spring Hill Wellness Collective | Community Wellness Calendar</title>
+<meta name="description" content="A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events around Spring Hill, Florida.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://springhillwellnesscollective.github.io/">
+<meta property="og:title" content="Spring Hill Wellness Collective">
+<meta property="og:description" content="A free monthly wellness meetup, plus other local wellness events around Spring Hill.">
+<meta property="og:image" content="https://springhillwellnesscollective.github.io/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://springhillwellnesscollective.github.io/share.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <style>
-/* ============================================================
-   SETTINGS: the only part you ever need to edit
-   (see the CONFIG block near the bottom of this file)
-   ============================================================ */
 :root{
-  --ground:#EEF3EF;      /* spring mist */
-  --surface:#FFFFFF;
-  --ink:#17302A;         /* cypress */
-  --ink-soft:#3E5650;
-  --spring:#0E6E6B;      /* spring water teal */
-  --spring-deep:#0A5451;
-  --sun:#B97C1E;         /* Florida sun gold */
-  --sun-wash:#F7EBD3;
-  --rule:#C7D3CC;
-  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F6F2E9; --surface:#FFFDF8; --ink:#1F2A24; --soft:#4A564F;
+  --green:#2F5A3E; --green-deep:#1F3F2B; --gold:#A87A2E; --tan:#E9DFC6; --rule:#DCD2BC;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ground:#10201C; --surface:#172A25; --ink:#E6EFEA; --ink-soft:#B3C4BD;
-    --spring:#5CC2BD; --spring-deep:#86D6D1; --sun:#E3AE55; --sun-wash:#2E2715; --rule:#2F4640;
-  }
-}
-:root[data-theme="dark"]{
-  --ground:#10201C; --surface:#172A25; --ink:#E6EFEA; --ink-soft:#B3C4BD;
-  --spring:#5CC2BD; --spring-deep:#86D6D1; --sun:#E3AE55; --sun-wash:#2E2715; --rule:#2F4640;
-}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:var(--spring)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
-img{max-width:100%}
-.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--green)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
 
-/* Hero */
-header{padding:44px 0 28px}
-.name{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.5vw,56px);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
-.lede{font-size:19px;color:var(--ink-soft);max-width:34em;margin:12px 0 0}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-family:var(--body);font-weight:700;font-size:17px;text-decoration:none;border:2px solid var(--spring)}
-.btn-primary{background:var(--spring);color:#fff}
-.btn-primary:hover{background:var(--spring-deep);border-color:var(--spring-deep)}
-:root[data-theme="dark"] .btn-primary{color:#10201C}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-primary{color:#10201C}}
-.btn-quiet{color:var(--spring);background:transparent}
-.btn-quiet:hover{background:var(--surface)}
+/* Hero banner */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--green) 0%,var(--green-deep) 100%);color:#F6F2E9;padding:calc(56px + env(safe-area-inset-top,0px)) 0 96px}
+.hero svg.leaves{position:absolute;right:-40px;top:-20px;height:120%;width:auto;opacity:.9;pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{display:flex;align-items:center;gap:14px;color:var(--tan);font-weight:600;font-size:17px;margin:0 0 14px}
+.kicker::before{content:"";width:48px;height:3px;background:var(--tan);border-radius:2px}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,68px);line-height:1.02;letter-spacing:-.01em;margin:0;max-width:12em}
+.hero p{font-size:19px;color:#E4DECF;max-width:36em;margin:18px 0 0}
 
 /* Featured meetup */
-.featured{background:var(--sun-wash);border:2px solid var(--sun);border-radius:22px;padding:34px 34px 30px;margin:8px 0 56px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;align-items:start}
-.featured .badge{font-family:var(--display);font-weight:800;font-size:22px;color:var(--sun);margin:0 0 8px}
-.featured h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.08;margin:0 0 8px;text-wrap:balance}
+.featured{position:relative;margin:-56px 0 56px;background:var(--surface);border-radius:20px;box-shadow:0 10px 30px rgba(31,63,43,.12);border-top:6px solid var(--gold);padding:30px 32px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
+.featured.soon{grid-template-columns:minmax(0,1fr)}
+.badge{font-family:var(--body);font-weight:700;font-size:16px;letter-spacing:.02em;color:var(--gold);margin:0 0 6px}
+.featured h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,42px);line-height:1.08;margin:0 0 10px;text-wrap:balance}
 .featured .who{font-weight:700;margin:0 0 8px}
-.featured .desc{margin:0 0 14px;color:var(--ink-soft)}
-.featured .when{margin:0 0 20px;font-size:20px;font-weight:700}
-.featured .actions{margin-bottom:6px}
-.featured .links{margin-top:10px}
+.featured .when{font-size:19px;font-weight:600;margin:0 0 18px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-family:var(--body);font-weight:700;font-size:17px;text-decoration:none;border:2px solid var(--green);cursor:pointer}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-deep);border-color:var(--green-deep)}
+.btn-quiet{background:transparent;color:var(--green)}
+.btn-quiet:hover{background:var(--surface)}
 
-/* Date stamp: the one bold element */
-.stamp{width:88px;text-align:center;font-family:var(--display);line-height:1}
-.stamp .mo{display:block;font-weight:700;font-size:17px;color:var(--spring)}
-.stamp .day{display:block;font-weight:800;font-size:56px;letter-spacing:-.03em;margin:2px 0}
-.stamp .dow{display:block;font-size:15px;color:var(--ink-soft);font-family:var(--body)}
-.featured .stamp .mo{color:var(--sun)}
+/* Date stamp */
+.stamp{width:86px;text-align:center;line-height:1;font-family:var(--display)}
+.stamp .mo{display:block;font-family:var(--body);font-weight:700;font-size:15px;color:var(--green)}
+.stamp .day{display:block;font-weight:700;font-size:50px;margin:2px 0}
+.stamp .dow{display:block;font-family:var(--body);font-size:15px;color:var(--soft)}
+.featured .stamp .mo{color:var(--gold)}
 
-/* Filters */
-.toolbar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 20px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:6px}
-.toolbar h2{font-family:var(--display);font-weight:700;font-size:26px;margin:0}
-.sub{margin:6px 0 0;font-size:16px;color:var(--ink-soft);flex-basis:100%}
-.filters{display:flex;flex-wrap:wrap;gap:8px}
-.filters button{font-family:var(--body);font-size:15px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
-.filters button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
-
-/* Month groups + event rows */
-.month{font-family:var(--display);font-weight:700;font-size:19px;color:var(--spring);margin:34px 0 4px}
-.event .stamp .day{font-size:42px}
-.event .noreg{color:var(--ink-soft);font-weight:400}
-.event{display:grid;grid-template-columns:88px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid var(--rule)}
-.event h3{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;margin:0 0 4px}
-.event .host{margin:0 0 6px;color:var(--ink-soft)}
-.event .type{display:inline-block;font-size:14px;border:1.5px solid var(--rule);border-radius:999px;padding:1px 10px;margin-left:6px;vertical-align:2px;color:var(--ink-soft)}
-.event .details{margin:0 0 8px}
-.event .desc{margin:0 0 12px;max-width:40em}
-.links{display:flex;flex-wrap:wrap;gap:8px 20px;font-weight:700}
+/* Events */
+.sec-head{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:6px}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:30px;margin:0}
+.sub{margin:6px 0 14px;color:var(--soft);font-size:16px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.filters,.prints{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--body);font-size:15px;min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip-print{border-color:var(--green);color:var(--green);font-weight:600}
+.chip-print:hover{background:var(--green);color:#fff}
+.month{font-family:var(--display);font-weight:700;font-size:20px;color:var(--green);margin:32px 0 4px}
+.event{display:grid;grid-template-columns:86px minmax(0,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.event h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.2;margin:0 0 4px}
+.host{margin:0 0 6px;color:var(--soft)}
+.tag{display:inline-block;font-size:14px;border:1.5px solid var(--rule);border-radius:999px;padding:0 10px;margin-left:6px;vertical-align:1px}
+.details{margin:0 0 8px}
+.desc{margin:0;max-width:40em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.desc.open{display:block}
+.more{background:none;border:0;padding:4px 0;margin:2px 0 8px;font:inherit;font-weight:700;font-size:16px;color:var(--green);cursor:pointer}
+.links{display:flex;flex-wrap:wrap;gap:6px 20px;font-weight:700;margin-top:6px}
 .links a{min-height:44px;display:inline-flex;align-items:center}
+.plain{color:var(--soft);font-weight:400;min-height:44px;display:inline-flex;align-items:center}
+.empty{padding:36px 0}
 
-.notice{background:var(--surface);border:1.5px dashed var(--rule);border-radius:12px;padding:14px 18px;margin:0 0 28px;font-size:16px;color:var(--ink-soft)}
-.empty{padding:40px 0;text-align:left}
-.empty p{margin:0 0 14px}
+/* Practitioners band */
+.join{margin:64px 0 0;background:var(--green);color:#F6F2E9;border-radius:20px;padding:34px 34px 30px;position:relative;overflow:hidden}
+.join h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,34px);margin:0 0 10px}
+.join p{margin:0 0 8px;color:#E4DECF;max-width:36em}
+.join ul{margin:12px 0 22px;padding-left:20px;color:#F6F2E9}
+.join li{margin:4px 0}
+.join .btn{background:#F6F2E9;color:var(--green-deep);border-color:#F6F2E9}
+.join .btn:hover{background:var(--tan);border-color:var(--tan)}
 
-footer{margin:56px 0 0;padding:28px 0 48px;border-top:1px solid var(--rule);font-size:15px;color:var(--ink-soft)}
+footer{margin:48px 0 0;padding:26px 0 calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule);font-size:15px;color:var(--soft)}
 footer p{margin:0 0 8px;max-width:44em}
 
-@media (max-width:620px){
+@media (max-width:640px){
   body{font-size:17px}
-  header{padding:36px 0 26px}
-  .featured{grid-template-columns:1fr;gap:10px;padding:22px}
-  .featured .stamp{text-align:left;width:auto;display:flex;align-items:baseline;gap:8px}
-  .featured .stamp .day{font-size:40px}
-  .event{grid-template-columns:64px minmax(0,1fr);gap:16px}
-  .stamp{width:64px}
-  .stamp .day{font-size:42px}
+  .hero{padding-bottom:84px}
+  .hero svg.leaves{opacity:.45}
+  .featured{grid-template-columns:1fr;gap:10px;padding:24px 22px}
+  .featured .stamp{display:flex;align-items:baseline;gap:8px;width:auto;text-align:left}
+  .featured .stamp .day{font-size:36px}
+  .event{grid-template-columns:62px minmax(0,1fr);gap:16px}
+  .stamp{width:62px}.stamp .day{font-size:38px}
+  .join{padding:26px 22px}
 }
-@media (prefers-reduced-motion: no-preference){
-  #events{animation:rise .5s ease-out both}
-  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* Print handout */
+#printSheet{display:none}
+@page{size:letter;margin:0.5in}
+@media print{
+  body{background:#fff;font-size:12pt}
+  body > *:not(#printSheet){display:none !important}
+  #printSheet{display:block;color:#1F2A24;font-family:var(--body)}
+  .p-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2pt solid #2F5A3E;padding-bottom:8pt;margin-bottom:14pt}
+  .p-head h1{font-family:var(--display);font-size:22pt;margin:0}
+  .p-head span{font-size:13pt;font-weight:700;color:#2F5A3E}
+  .p-meet{background:#2F5A3E;color:#F6F2E9;border-radius:10pt;padding:14pt 16pt;margin-bottom:16pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .p-meet .lbl{font-weight:700;color:#E9DFC6;font-size:12pt}
+  .p-meet h2{font-family:var(--display);font-size:24pt;line-height:1.1;margin:4pt 0 6pt}
+  .p-meet p{margin:2pt 0;font-size:12pt}
+  .p-sec{font-family:var(--display);font-size:15pt;margin:0 0 2pt}
+  .p-note{font-size:10pt;color:#4A564F;margin:0 0 6pt}
+  table{width:100%;border-collapse:collapse;font-size:10.5pt}
+  th{text-align:left;border-bottom:1.5pt solid #1F2A24;padding:4pt}
+  td{border-bottom:.75pt solid #CFC6B2;padding:5pt 4pt;vertical-align:top}
+  .p-foot{display:flex;gap:24pt;margin-top:18pt;align-items:center;break-inside:avoid}
+  .p-foot div{display:flex;gap:10pt;align-items:center;font-size:10.5pt}
+  .p-foot svg{width:72pt;height:72pt}
+  .p-fine{font-size:8.5pt;color:#5A615C;margin-top:12pt;border-top:.75pt solid #CFC6B2;padding-top:6pt}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1 class="name">Spring Hill Wellness Collective</h1>
-    <p class="lede">A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events happening around Spring Hill.</p>
-  </header>
+<header class="hero">
+  <svg class="leaves" viewBox="0 0 400 420" aria-hidden="true">
+    <g fill="#F6F2E9">
+      <path d="M300 30 C 380 60, 390 170, 300 230 C 250 170, 240 90, 300 30 Z" opacity=".10"/>
+      <path d="M180 200 C 260 190, 330 260, 320 340 C 240 340, 180 280, 180 200 Z" opacity=".08"/>
+      <path d="M340 250 C 400 290, 400 380, 350 420 C 310 370, 300 300, 340 250 Z" opacity=".09"/>
+    </g>
+    <g stroke="#F6F2E9" stroke-width="2" fill="none" opacity=".18">
+      <path d="M300 30 C 300 110, 300 170, 300 230"/>
+      <path d="M180 200 C 240 250, 290 300, 320 340"/>
+      <path d="M340 250 C 345 320, 348 370, 350 420"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="kicker">Community wellness calendar</p>
+    <h1>Spring Hill Wellness Collective</h1>
+    <p>A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events happening around Spring Hill.</p>
+  </div>
+</header>
 
+<div class="wrap">
   <main>
-    <div id="notice"></div>
     <div id="featured"></div>
 
     <section aria-labelledby="upcomingHeading">
-      <div class="toolbar">
+      <div class="sec-head">
         <h2 id="upcomingHeading">Other Local Wellness Events</h2>
         <p class="sub">Hosted by local practitioners and wellness businesses. Register with the host directly.</p>
-        <div class="filters" id="filters" role="group" aria-label="Filter events by host"></div>
+        <div class="toolbar">
+          <div class="filters" id="filters" role="group" aria-label="Filter events"></div>
+          <div class="prints" id="prints"></div>
+        </div>
       </div>
       <div id="events" aria-live="polite"><p class="empty">Loading events…</p></div>
+    </section>
+
+    <section class="join" aria-labelledby="joinHeading">
+      <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
+      <p>The Collective is a collaboration. Join us and:</p>
+      <ul>
+        <li>Share your expertise with our community at a monthly Collective Meetup</li>
+        <li>List your own classes and events here, free</li>
+      </ul>
+      <a class="btn" id="joinBtn" href="#">Join the Collective</a>
     </section>
   </main>
 
   <footer>
     <p>Other Local Wellness Events are hosted independently by local practitioners and wellness businesses. Information shared is educational and not a substitute for medical advice.</p>
-    <p>Practitioners and wellness businesses: <a id="formLink" href="#">present at a Collective Meetup or list your event free</a>.</p>
-    <p><a id="newsletterLink" href="#">Get the monthly calendar by email</a></p>
+    <p>Questions? Text Charlie at 727-744-0838 or email <a href="mailto:charlie@charliewidmer.com">charlie@charliewidmer.com</a>.</p>
   </footer>
 </div>
 
+<div id="printSheet" aria-hidden="true"></div>
+
 <script>
-/* ============================================================
-   CONFIG: paste your four links here. Nothing else needs editing.
-   csvUrl  = the published CSV link of the "Public" tab of your Google Sheet
-   formUrl = your event submission form link
-   newsletterUrl = your GHL newsletter signup link
-   Leave csvUrl blank to show sample events.
-   ============================================================ */
+/* ============ SETTINGS ============ */
 const CONFIG = {
   csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTeL9Mly_mDynKhQGMsXydLUTJ_J0yFsa0XACpjHeANkjP9pWpZ48QSkXMD9HjeKGsRzpPYzy8IxpdE/pub?gid=1083800578&single=true&output=csv",
-  meetupUrl: "",       // your Meetup group link (leave "" until the group exists)
+  meetupUrl: "",   // Meetup group link, once it exists
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform",
-  newsletterUrl: "",   // leave "" until there is an email signup
-  meetupType: "Collective Meetup",   // rows with this Type become the featured meetup
+  pageUrl: "https://springhillwellnesscollective.github.io",
+  meetupType: "Collective Meetup",
+  nextMonthFromDay: 25,  // "Print next month" appears from this day of the month
   timeZone: "America/New_York"
 };
+/* ================================== */
 
-/* Expected columns on the Public tab (header row, any order):
-   Date | Start | End | Title | Host | Type | Location | Description | Cost | Link | Contact | Repeats
-   Link = registration link (leave blank if no registration needed)
-   Contact = website or phone for questions
-   Repeats = "Weekly" for a weekly event (Date = the first date); leave blank for one-time events   */
+const $ = id => document.getElementById(id);
+$("joinBtn").href = CONFIG.formUrl;
 
-const $ = (id) => document.getElementById(id);
-$("formLink").href = CONFIG.formUrl;
-if (CONFIG.newsletterUrl) { $("newsletterLink").href = CONFIG.newsletterUrl; } else { $("newsletterLink").parentElement.remove(); }
-
-/* ---------- helpers ---------- */
 function parseCSV(text){
   const rows=[]; let row=[], field="", q=false;
   for(let i=0;i<text.length;i++){
     const c=text[i];
-    if(q){
-      if(c==='"'){ if(text[i+1]==='"'){field+='"';i++;} else q=false; }
-      else field+=c;
-    } else if(c==='"') q=true;
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){field+='"';i++;} else q=false; } else field+=c; }
+    else if(c==='"') q=true;
     else if(c===','){ row.push(field); field=""; }
-    else if(c==='\n'||c==='\r'){
-      if(c==='\r'&&text[i+1]==='\n') i++;
-      row.push(field); rows.push(row); row=[]; field="";
-    } else field+=c;
+    else if(c==='\n'||c==='\r'){ if(c==='\r'&&text[i+1]==='\n') i++; row.push(field); rows.push(row); row=[]; field=""; }
+    else field+=c;
   }
   if(field!==""||row.length){ row.push(field); rows.push(row); }
   if(!rows.length) return [];
   const head=rows[0].map(h=>h.trim().toLowerCase());
-  return rows.slice(1).filter(r=>r.some(v=>v.trim()!=="")).map(r=>{
-    const o={}; head.forEach((h,i)=>o[h]=(r[i]||"").trim()); return o;
-  });
+  return rows.slice(1).filter(r=>r.some(v=>v.trim()!=="")).map(r=>{ const o={}; head.forEach((h,i)=>o[h]=(r[i]||"").trim()); return o; });
 }
 function parseDate(s){
   if(!s) return null;
-  let m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
-  if(m) return new Date(+m[1],+m[2]-1,+m[3]);
-  m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
-  if(m){ const y=+m[3]<100?2000+ +m[3]:+m[3]; return new Date(y,+m[1]-1,+m[2]); }
+  let m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/); if(m) return new Date(+m[1],+m[2]-1,+m[3]);
+  m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/); if(m){ const y=+m[3]<100?2000+ +m[3]:+m[3]; return new Date(y,+m[1]-1,+m[2]); }
   const d=new Date(s); return isNaN(d)?null:new Date(d.getFullYear(),d.getMonth(),d.getDate());
 }
-function cleanTime(t){ return (t||"").replace(/:00(\s?[AP]M)$/i,"$1").replace(/:00:00/,":00").trim(); }
+function cleanTime(t){ return (t||"").replace(/:00(\s?[AP]M)$/i,"$1").trim(); }
 function to24(t){
-  const m=(t||"").match(/(\d{1,2}):(\d{2})(?::\d{2})?\s*([AP]M)?/i);
-  if(!m) return null;
-  let h=+m[1]; const min=m[2]; const ap=(m[3]||"").toUpperCase();
-  if(ap==="PM"&&h<12) h+=12; if(ap==="AM"&&h===12) h=0;
-  return String(h).padStart(2,"0")+min+"00";
+  const m=(t||"").match(/(\d{1,2}):(\d{2})(?::\d{2})?\s*([AP]M)?/i); if(!m) return null;
+  let h=+m[1]; const ap=(m[3]||"").toUpperCase(); if(ap==="PM"&&h<12) h+=12; if(ap==="AM"&&h===12) h=0;
+  return String(h).padStart(2,"0")+m[2]+"00";
 }
 function ymd(d){ return d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0"); }
 function esc(s){ return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function safeUrl(u){ return /^https?:\/\//i.test(u||"")?u:""; }
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTHS_LONG=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const DAYS_LONG=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 function gcalLink(e){
-  const s=to24(e.start), en=to24(e.end);
-  let dates;
-  if(s){ dates=ymd(e.dateObj)+"T"+s+"/"+ymd(e.dateObj)+"T"+(en||s); }
+  const s=to24(e.start), en=to24(e.end); let dates;
+  if(s) dates=ymd(e.dateObj)+"T"+s+"/"+ymd(e.dateObj)+"T"+(en||s);
   else { const n=new Date(e.dateObj); n.setDate(n.getDate()+1); dates=ymd(e.dateObj)+"/"+ymd(n); }
   const p=new URLSearchParams({action:"TEMPLATE",text:e.title,dates,details:(e.description||"")+(e.link?"\n\n"+e.link:""),location:e.location||"",ctz:CONFIG.timeZone});
   if(e.repeats==="weekly") p.set("recur","RRULE:FREQ=WEEKLY");
   return "https://calendar.google.com/calendar/render?"+p.toString();
 }
-
-const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const MONTHS_LONG=["January","February","March","April","May","June","July","August","September","October","November","December"];
-const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-
-function stamp(d){
-  return `<div class="stamp" aria-hidden="true"><span class="mo">${MONTHS[d.getMonth()]}</span><span class="day">${d.getDate()}</span><span class="dow">${DAYS[d.getDay()]}</span></div>`;
-}
+function stamp(d){ return `<div class="stamp" aria-hidden="true"><span class="mo">${MONTHS[d.getMonth()]}</span><span class="day">${d.getDate()}</span><span class="dow">${DAYS[d.getDay()]}</span></div>`; }
+function timeStr(e){ return e.start?(cleanTime(e.start)+(e.end?"–"+cleanTime(e.end):"")):""; }
 function whenLine(e){
-  const FULL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  const date=e.repeats==="weekly"?`Every ${FULL[e.dateObj.getDay()]} (next: ${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getDate()})`:`${DAYS[e.dateObj.getDay()]}, ${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getDate()}`;
-  const time=e.start?(cleanTime(e.start)+(e.end?"–"+cleanTime(e.end):"")):"";
-  return [date,time].filter(Boolean).join(", ");
+  const date=e.repeats==="weekly"?`Every ${DAYS_LONG[e.dateObj.getDay()]} (next: ${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getDate()})`:`${DAYS[e.dateObj.getDay()]}, ${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getDate()}`;
+  return [date,timeStr(e)].filter(Boolean).join(", ");
 }
+function isOnline(e){ return /online|zoom|virtual/i.test(e.location||""); }
+function isMeetup(e){ return (e.type||"").toLowerCase()===CONFIG.meetupType.toLowerCase(); }
 
-/* ---------- sample data (shown only when csvUrl is blank) ---------- */
-function sample(){
-  const t=new Date(); t.setHours(0,0,0,0);
-  const d=(n)=>{const x=new Date(t); x.setDate(x.getDate()+n); return `${x.getMonth()+1}/${x.getDate()}/${x.getFullYear()}`;};
-  const tue=new Date(t); tue.setDate(tue.getDate()+((2-tue.getDay()+7)%7));
-  const tueStr=`${tue.getMonth()+1}/${tue.getDate()}/${tue.getFullYear()}`;
-  return [
-    {date:tueStr,start:"7:30 PM",end:"8:30 PM",title:"Finally Running on Full",host:"Charlie, Lightpath Wellness",type:"Practitioner",location:"Online",description:"A weekly online class on closing nutritional gaps with whole-food supplementation.",cost:"Free",link:"https://example.com",contact:"",repeats:"Weekly"},
-    {date:d(12),start:"6:30 PM",end:"8:00 PM",title:"Plant-based food that isn't junk food",host:"With [guest chef name]",type:"Collective Meetup",location:"[Venue, address]",description:"A local vegan chef shows how satisfying whole-food, plant-based meals can be, with a tasting for everyone. No experience needed.",cost:"Free",link:""},
-    {date:d(4),start:"9:00 AM",end:"10:00 AM",title:"Gentle tai chi in the park",host:"[Instructor name]",type:"Practitioner",location:"[Park name]",description:"Slow, flowing movement for balance and calm. All ages and abilities welcome.",cost:"Free",link:"",contact:"(352) 555-0100"},
-    {date:d(9),start:"10:00 AM",end:"2:00 PM",title:"Saturday organic market",host:"[Farm name]",type:"Community group",location:"[Market location]",description:"Local organic produce, raw honey, and herbs from growers in Hernando County.",cost:"Free entry",link:""},
-    {date:d(17),start:"7:00 PM",end:"8:15 PM",title:"Sound bath at the yurt",host:"[Sound healer name]",type:"Practitioner",location:"[Yurt location]",description:"A relaxing evening of singing bowls and gongs. Bring a mat and blanket.",cost:"$20",link:"https://example.com",contact:""},
-    {date:d(24),start:"11:00 AM",end:"12:00 PM",title:"Reading supplement labels",host:"[Health food store name]",type:"Wellness business",location:"[Store address]",description:"What to look for on a label, and what the fine print actually means.",cost:"Free",link:"https://example.com",contact:""},
-    {date:d(38),start:"8:00 AM",end:"9:30 AM",title:"Sunrise walk and coffee",host:"[Organizer name]",type:"Individual",location:"[Trailhead]",description:"An easy group walk followed by coffee and conversation. A good way to meet neighbors.",cost:"Free",link:""}
-  ];
-}
-
-/* ---------- render ---------- */
 let ALL=[], FILTER="All";
-const TYPE_ORDER=["Practitioner","Wellness business","Community group","Individual"];
 
 function normalize(rows){
   const today=new Date(); today.setHours(0,0,0,0);
-  return rows.map(r=>({
-    date:r.date, start:r.start, end:r.end, title:r.title, host:r.host,
-    type:r.type||"", location:r.location, description:r.description, cost:r.cost, link:safeUrl(r.link), contact:r.contact||"",
-    repeats:(r.repeats||"").trim().toLowerCase(),
-    dateObj:parseDate(r.date)
-  })).map(e=>{
-    if(e.dateObj&&e.repeats==="weekly"&&e.dateObj<today){
-      const n=new Date(e.dateObj); while(n<today) n.setDate(n.getDate()+7); e.dateObj=n;
-    }
-    return e;
-  }).filter(e=>e.title&&e.dateObj&&e.dateObj>=today)
+  return rows.map(r=>({date:r.date,start:r.start,end:r.end,title:r.title,host:r.host,type:r.type||"",location:r.location,
+    description:r.description,cost:r.cost,link:safeUrl(r.link),contact:r.contact||"",repeats:(r.repeats||"").trim().toLowerCase(),dateObj:parseDate(r.date)}))
+    .map(e=>{ if(e.dateObj&&e.repeats==="weekly"&&e.dateObj<today){ const n=new Date(e.dateObj); while(n<today) n.setDate(n.getDate()+7); e.dateObj=n; } return e; })
+    .filter(e=>e.title&&e.dateObj&&e.dateObj>=today)
     .sort((a,b)=>a.dateObj-b.dateObj||(to24(a.start)||"").localeCompare(to24(b.start)||""));
 }
 
 function renderFeatured(){
-  const f=ALL.find(e=>e.type.toLowerCase()===CONFIG.meetupType.toLowerCase());
+  const f=ALL.find(isMeetup);
   if(!f){
-    $("featured").innerHTML=`
-    <section class="featured" style="grid-template-columns:1fr" aria-labelledby="featTitle">
-      <div>
-        <p class="badge">The Collective Meetup</p>
-        <h2 id="featTitle">Our first Collective Meetup is coming soon</h2>
-        <p class="desc">A free monthly gathering where a local practitioner teaches natural ways to support your health. Check back soon for the date and topic.</p>
-        ${CONFIG.meetupUrl?`<div class="actions"><a class="btn btn-primary" href="${esc(CONFIG.meetupUrl)}" target="_blank" rel="noopener">Join on Meetup to be notified</a></div>`:""}
-      </div>
-    </section>`;
+    $("featured").innerHTML=`<section class="featured soon" aria-labelledby="featTitle"><div>
+      <p class="badge">The Collective Meetup</p>
+      <h2 id="featTitle">Our first Collective Meetup is coming soon</h2>
+      <p class="desc open">A free monthly gathering where a local practitioner teaches natural ways to support your health. Check back soon for the date and topic.</p>
+      ${CONFIG.meetupUrl?`<p style="margin-top:18px"><a class="btn btn-primary" href="${esc(CONFIG.meetupUrl)}" target="_blank" rel="noopener">Join on Meetup to be notified</a></p>`:""}
+    </div></section>`;
     return;
   }
-  $("featured").innerHTML=`
-  <section class="featured" aria-labelledby="featTitle">
+  $("featured").innerHTML=`<section class="featured" aria-labelledby="featTitle">
     ${stamp(f.dateObj)}
     <div>
       <p class="badge">The Collective Meetup</p>
       <h2 id="featTitle">${esc(f.title)}</h2>
       ${f.host?`<p class="who">${esc(f.host)}</p>`:""}
-      ${f.description?`<p class="desc">${esc(f.description)}</p>`:""}
+      ${f.description?`<p class="desc open" style="margin-bottom:12px">${esc(f.description)}</p>`:""}
       <p class="when">${esc(whenLine(f))}${f.location?`<br>${esc(f.location)}`:""}${f.cost?`<br>${esc(f.cost)}`:""}</p>
-      ${CONFIG.meetupUrl?`<div class="actions"><a class="btn btn-primary" href="${esc(CONFIG.meetupUrl)}" target="_blank" rel="noopener">RSVP free on Meetup</a></div>`:""}
+      ${CONFIG.meetupUrl?`<a class="btn btn-primary" href="${esc(CONFIG.meetupUrl)}" target="_blank" rel="noopener">RSVP free on Meetup</a>`:""}
       <div class="links"><a href="${esc(gcalLink(f))}" target="_blank" rel="noopener">Add to my calendar</a></div>
     </div>
   </section>`;
 }
 
 function renderFilters(){
-  const present=TYPE_ORDER.filter(t=>ALL.some(e=>e.type===t));
-  const opts=["All",...present];
-  if(ALL.some(isOnline)) opts.push("Online");
-  $("filters").innerHTML=opts.map(o=>`<button type="button" aria-pressed="${o===FILTER}" data-f="${esc(o)}">${o==="All"?"All events":esc(o)}</button>`).join("");
+  const others=ALL.filter(e=>!isMeetup(e));
+  const opts=["All"]; if(others.some(isOnline)&&others.some(e=>!isOnline(e))) opts.push("Online");
+  $("filters").innerHTML=opts.length>1?opts.map(o=>`<button type="button" class="chip" aria-pressed="${o===FILTER}" data-f="${o}">${o==="All"?"All events":o}</button>`).join(""):"";
   $("filters").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{FILTER=b.dataset.f;renderFilters();renderList();}));
 }
 
+function contactHtml(c){
+  if(!c) return ""; const u=safeUrl(c);
+  return u?`<a href="${esc(u)}" target="_blank" rel="noopener">Host website</a>`:`<span class="plain">Questions: ${esc(c)}</span>`;
+}
+
 function renderList(){
-  const list=ALL.filter(e=>e.type.toLowerCase()!==CONFIG.meetupType.toLowerCase())
-                .filter(e=>FILTER==="All"||(FILTER==="Online"?isOnline(e):e.type===FILTER));
+  const list=ALL.filter(e=>!isMeetup(e)).filter(e=>FILTER==="All"||isOnline(e));
   if(!list.length){
-    $("events").innerHTML=`<div class="empty"><p>No other local events listed${FILTER==="All"?"":" in this category"} yet.</p><p>Practitioners and wellness businesses: <a href="${esc(CONFIG.formUrl)}">list your event free</a>.</p></div>`;
+    $("events").innerHTML=`<div class="empty"><p>No other local events listed yet.</p><p>Practitioners and wellness businesses: <a href="${esc(CONFIG.formUrl)}">list your events free</a>.</p></div>`;
     return;
   }
-  let html="", lastMonth="";
-  list.forEach(e=>{
+  let html="", last="";
+  list.forEach((e,i)=>{
     const key=e.dateObj.getFullYear()+"-"+e.dateObj.getMonth();
-    if(key!==lastMonth){ html+=`<h3 class="month">${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getFullYear()}</h3>`; lastMonth=key; }
-    html+=`
-    <article class="event">
+    if(key!==last){ html+=`<h3 class="month">${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getFullYear()}</h3>`; last=key; }
+    html+=`<article class="event">
       ${stamp(e.dateObj)}
       <div>
         <h3>${esc(e.title)}</h3>
-        <p class="host">${esc(e.host)}${e.type?`<span class="type">${esc(e.type)}</span>`:""}</p>
-        <p class="details">${esc(whenLine(e))}${e.location?`<br>${esc(e.location)}`:""}${e.cost?`<br>${esc(e.cost)}`:""}</p>
-        ${e.description?`<p class="desc">${esc(e.description)}</p>`:""}
+        <p class="host">${esc(e.host)}${isOnline(e)?`<span class="tag">Online</span>`:""}</p>
+        <p class="details">${esc(whenLine(e))}${e.location&&!/^online$/i.test(e.location)?`<br>${esc(e.location)}`:""}${e.cost?`<br>${esc(e.cost)}`:""}</p>
+        ${e.description?`<p class="desc" id="d${i}">${esc(e.description)}</p><button class="more" type="button" data-t="d${i}" hidden>Read more</button>`:""}
         <div class="links">
-          ${e.link?`<a href="${esc(e.link)}" target="_blank" rel="noopener">Register with ${esc(e.host)}</a>`:`<span class="noreg">No registration needed. Just show up.</span>`}
+          ${e.link?`<a href="${esc(e.link)}" target="_blank" rel="noopener">Register with ${esc(e.host)}</a>`:`<span class="plain">No registration needed. Just show up.</span>`}
           <a href="${esc(gcalLink(e))}" target="_blank" rel="noopener">Add to my calendar</a>
           ${contactHtml(e.contact)}
         </div>
@@ -343,28 +333,70 @@ function renderList(){
     </article>`;
   });
   $("events").innerHTML=html;
+  requestAnimationFrame(()=>{
+    $("events").querySelectorAll(".more").forEach(btn=>{
+      const d=$(btn.dataset.t);
+      if(d.scrollHeight>d.clientHeight+2) btn.hidden=false;
+      btn.addEventListener("click",()=>{ const open=d.classList.toggle("open"); btn.textContent=open?"Show less":"Read more"; });
+    });
+  });
 }
 
-function isOnline(e){ return /online|zoom|virtual/i.test(e.location||""); }
-function contactHtml(c){
-  if(!c) return "";
-  const u=safeUrl(c);
-  return u?`<a href="${esc(u)}" target="_blank" rel="noopener">Host website</a>`:`<span class="noreg">Questions: ${esc(c)}</span>`;
+/* ---------- Printable monthly handout ---------- */
+function qrSvg(url){
+  try{ const q=qrcode(0,"M"); q.addData(url); q.make(); return q.createSvgTag({cellSize:3,margin:0,scalable:true}); }catch(e){ return ""; }
 }
-function renderAll(){ renderFeatured(); renderFilters(); renderList(); }
+function eventsInMonth(y,m){
+  const end=new Date(y,m+1,0);
+  return ALL.filter(e=>{
+    if(e.repeats==="weekly") return e.dateObj<=end;
+    return e.dateObj.getFullYear()===y&&e.dateObj.getMonth()===m;
+  });
+}
+function printMonth(y,m){
+  const items=eventsInMonth(y,m);
+  const meet=items.find(isMeetup);
+  const others=items.filter(e=>!isMeetup(e));
+  const rows=others.map(e=>{
+    const d=e.repeats==="weekly"?`Every ${DAYS[e.dateObj.getDay()]}`:`${DAYS[e.dateObj.getDay()]} ${MONTHS[e.dateObj.getMonth()]} ${e.dateObj.getDate()}`;
+    return `<tr><td>${esc(d)}<br>${esc(timeStr(e))}</td><td><strong>${esc(e.title)}</strong>${e.cost?`<br>${esc(e.cost)}`:""}</td><td>${esc(e.host)}</td><td>${esc(e.location)}</td></tr>`;
+  }).join("");
+  $("printSheet").innerHTML=`
+    <div class="p-head"><h1>Spring Hill Wellness Collective</h1><span>${MONTHS_LONG[m]} ${y}</span></div>
+    <div class="p-meet">
+      <div class="lbl">The Collective Meetup</div>
+      ${meet?`<h2>${esc(meet.title)}</h2>${meet.host?`<p><strong>${esc(meet.host)}</strong></p>`:""}<p>${esc(whenLine(meet))}</p>${meet.location?`<p>${esc(meet.location)}</p>`:""}<p>${esc(meet.cost||"Free")}</p>`
+            :`<h2>Coming soon</h2><p>See the date and topic at ${esc(CONFIG.pageUrl.replace(/^https?:\/\//,""))}</p>`}
+    </div>
+    <h3 class="p-sec">Other Local Wellness Events</h3>
+    <p class="p-note">Hosted by local practitioners and wellness businesses. Register with the host directly.</p>
+    ${rows?`<table><thead><tr><th style="width:18%">When</th><th>Event</th><th style="width:22%">Host</th><th style="width:24%">Where</th></tr></thead><tbody>${rows}</tbody></table>`:`<p>No other events listed yet for ${MONTHS_LONG[m]}.</p>`}
+    <div class="p-foot">
+      <div>${qrSvg(CONFIG.pageUrl)}<span><strong>See all events</strong><br>${esc(CONFIG.pageUrl.replace(/^https?:\/\//,""))}</span></div>
+      <div>${qrSvg(CONFIG.formUrl)}<span><strong>Practitioners:</strong><br>join the Collective and list your events free</span></div>
+    </div>
+    <p class="p-fine">Other Local Wellness Events are hosted independently. Information shared is educational and not a substitute for medical advice.</p>`;
+  window.print();
+}
+function renderPrints(){
+  const now=new Date(); const y=now.getFullYear(), m=now.getMonth();
+  const btns=[`<button type="button" class="chip chip-print" data-y="${y}" data-m="${m}">Print ${MONTHS_LONG[m]} calendar</button>`];
+  if(now.getDate()>=CONFIG.nextMonthFromDay){ const n=new Date(y,m+1,1); btns.push(`<button type="button" class="chip chip-print" data-y="${n.getFullYear()}" data-m="${n.getMonth()}">Print ${MONTHS_LONG[n.getMonth()]} calendar</button>`); }
+  $("prints").innerHTML=btns.join("");
+  $("prints").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>printMonth(+b.dataset.y,+b.dataset.m)));
+}
+
+function renderAll(){ renderFeatured(); renderFilters(); renderList(); renderPrints(); }
 
 async function load(){
-  if(!CONFIG.csvUrl){
-    $("notice").innerHTML=`<p class="notice">Preview: these are sample events. Real events appear here automatically once the Google Sheet is connected.</p>`;
-    ALL=normalize(sample()); renderAll(); return;
-  }
   try{
     const res=await fetch(CONFIG.csvUrl+(CONFIG.csvUrl.includes("?")?"&":"?")+"t="+Date.now());
     if(!res.ok) throw new Error(res.status);
     ALL=normalize(parseCSV(await res.text()));
     renderAll();
   }catch(err){
-    $("events").innerHTML=`<div class="empty"><p>Events couldn't load right now. Refresh the page to try again.</p></div>`;
+    $("events").innerHTML=`<div class="empty"><p>Events couldn't load right now. Please refresh the page.</p></div>`;
+    renderPrints();
   }
 }
 load();
