@@ -101,7 +101,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .join li{margin:4px 0}
 .join .btn{background:#F6F2E9;color:var(--green-deep);border-color:#F6F2E9}
 .join .btn:hover{background:var(--tan);border-color:var(--tan)}
-.join-btns{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 14px}
+.join-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.join-card{background:rgba(246,242,233,.08);border:1.5px solid rgba(246,242,233,.25);border-radius:16px;padding:22px 22px 24px;display:flex;flex-direction:column}
+.join-card h3{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 8px;color:#F6F2E9}
+.join-card p{flex-grow:1;margin:0 0 18px !important;font-size:17px}
+.join-card .btn{align-self:flex-start}
+@media (max-width:640px){.join-cards{grid-template-columns:1fr}.join-card .btn{align-self:stretch;justify-content:center}}
 .join .btn-outline{background:transparent;color:#F6F2E9;border-color:#F6F2E9}
 .join .btn-outline:hover{background:rgba(246,242,233,.12);border-color:#F6F2E9}
 .join-note{font-size:16px;color:#D9D3C3 !important;margin:0 !important}
@@ -191,11 +196,18 @@ footer p{margin:0 0 8px;max-width:44em}
     <section class="join" aria-labelledby="joinHeading">
       <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
       <p>The Collective is a collaboration. Choose what you'd like to do:</p>
-      <div class="join-btns">
-        <a class="btn" id="eventsBtn" href="#">📅 Add your events</a>
-        <a class="btn btn-outline" id="speakBtn" href="#">🎤 Share your expertise</a>
+      <div class="join-cards">
+        <div class="join-card">
+          <h3>📅 Add your events</h3>
+          <p>List your own events, classes, and workshops on this community calendar. Free advertising to the public and this community.</p>
+          <a class="btn" id="eventsBtn" href="#">Add your events</a>
+        </div>
+        <div class="join-card">
+          <h3>🎤 Share your expertise</h3>
+          <p>Teach our community as the featured speaker at our Free monthly Collective Meetup!</p>
+          <a class="btn" id="speakBtn" href="#">Share your expertise</a>
+        </div>
       </div>
-      <p class="join-note">Add your classes and workshops to this calendar free, or teach our community as a featured speaker at a monthly meetup.</p>
     </section>
   </main>
 
