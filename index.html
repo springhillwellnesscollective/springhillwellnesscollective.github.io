@@ -101,6 +101,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .join li{margin:4px 0}
 .join .btn{background:#F6F2E9;color:var(--green-deep);border-color:#F6F2E9}
 .join .btn:hover{background:var(--tan);border-color:var(--tan)}
+.join-btns{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 14px}
+.join .btn-outline{background:transparent;color:#F6F2E9;border-color:#F6F2E9}
+.join .btn-outline:hover{background:rgba(246,242,233,.12);border-color:#F6F2E9}
+.join-note{font-size:16px;color:#D9D3C3 !important;margin:0 !important}
 
 footer{margin:48px 0 0;padding:26px 0 calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--rule);font-size:15px;color:var(--soft)}
 footer p{margin:0 0 8px;max-width:44em}
@@ -186,12 +190,12 @@ footer p{margin:0 0 8px;max-width:44em}
 
     <section class="join" aria-labelledby="joinHeading">
       <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
-      <p>The Collective is a collaboration. Join us and:</p>
-      <ul>
-        <li>Share your expertise with our community at a monthly Collective Meetup</li>
-        <li>List your own classes and events here, free</li>
-      </ul>
-      <a class="btn" id="joinBtn" href="#">Join the Collective</a>
+      <p>The Collective is a collaboration. Choose what you'd like to do:</p>
+      <div class="join-btns">
+        <a class="btn" id="eventsBtn" href="#">📅 Add your events</a>
+        <a class="btn btn-outline" id="speakBtn" href="#">🎤 Share your expertise</a>
+      </div>
+      <p class="join-note">Add your classes and workshops to this calendar free, or teach our community as a featured speaker at a monthly meetup.</p>
     </section>
   </main>
 
@@ -209,6 +213,8 @@ const CONFIG = {
   csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTeL9Mly_mDynKhQGMsXydLUTJ_J0yFsa0XACpjHeANkjP9pWpZ48QSkXMD9HjeKGsRzpPYzy8IxpdE/pub?gid=1083800578&single=true&output=csv",
   meetupUrl: "",   // Meetup group link, once it exists
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform",
+  eventsUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform?usp=pp_url&entry.1232648003=%F0%9F%93%85+Add+my+classes+or+events+to+the+community+calendar",
+  speakUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform?usp=pp_url&entry.1232648003=%F0%9F%8E%A4+Share+your+expertise+as+a+featured+speaker+at+our+monthly+meetup",
   pageUrl: "https://springhillwellnesscollective.github.io",
   meetupType: "Collective Meetup",
   nextMonthFromDay: 25,  // "Print next month" appears from this day of the month
@@ -218,7 +224,8 @@ const CONFIG = {
 /* ================================== */
 
 const $ = id => document.getElementById(id);
-$("joinBtn").href = CONFIG.formUrl;
+$("eventsBtn").href = CONFIG.eventsUrl;
+$("speakBtn").href = CONFIG.speakUrl;
 
 function parseCSV(text){
   const rows=[]; let row=[], field="", q=false;
@@ -324,7 +331,7 @@ function contactHtml(c){
 function renderList(){
   const list=ALL.filter(e=>!isMeetup(e)).filter(e=>FILTER==="All"||isOnline(e));
   if(!list.length){
-    $("events").innerHTML=`<div class="empty"><p>No other local events listed yet.</p><p>Practitioners and wellness businesses: <a href="${esc(CONFIG.formUrl)}">list your events free</a>.</p></div>`;
+    $("events").innerHTML=`<div class="empty"><p>No other local events listed yet.</p><p>Practitioners and wellness businesses: <a href="${esc(CONFIG.eventsUrl)}">add your events free</a>.</p></div>`;
     return;
   }
   let html="", last="";
@@ -392,7 +399,7 @@ function printMonth(y,m){
     ${extra>0?`<p class="p-more">Plus ${extra} more event${extra===1?"":"s"} this month. See them all at <a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a> or scan the QR code below.</p>`:""}
     <div class="p-foot">
       <div>${qrSvg(CONFIG.pageUrl)}<span><strong>See all events</strong><br><a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a></span></div>
-      <div>${qrSvg(CONFIG.formUrl)}<span><strong>Practitioners:</strong><br><a href="${esc(CONFIG.formUrl)}">join the Collective</a> and list your events free</span></div>
+      <div>${qrSvg(CONFIG.eventsUrl)}<span><strong>Practitioners:</strong><br><a href="${esc(CONFIG.eventsUrl)}">add your events</a> to this calendar, free</span></div>
     </div>
     <p class="p-fine">Other Local Wellness Events are hosted independently. Information shared is educational and not a substitute for medical advice.</p>`;
   window.print();
