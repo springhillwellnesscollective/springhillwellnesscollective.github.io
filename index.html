@@ -67,6 +67,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .community p{margin:0;color:var(--soft);font-size:16px;max-width:36em}
 .community .fb-link{font-size:18px;margin-top:6px}
 .community .fb-link a{font-weight:700;color:var(--green)}
+.fb-cta{text-align:center;font-size:20px;font-weight:600;color:var(--ink);margin:40px 0 0}
+.fb-cta a{color:var(--green)}
 .fb-a{display:inline-flex;align-items:center;gap:6px;vertical-align:middle}
 .fb-icon{width:1.15em;height:1.15em;fill:#1877F2;flex-shrink:0}
 footer .fb-line{font-size:25px}
@@ -113,7 +115,7 @@ footer .fb-line{font-size:25px}
 .empty{padding:36px 0}
 
 /* Practitioners band */
-.join{margin:64px 0 0;background:var(--green);color:#F6F2E9;border-radius:20px;padding:34px 34px 30px;position:relative;overflow:hidden}
+.join{margin:40px 0 0;background:var(--green);color:#F6F2E9;border-radius:20px;padding:34px 34px 30px;position:relative;overflow:hidden}
 .join h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,34px);margin:0 0 10px}
 .join p{margin:0 0 8px;color:#E4DECF;max-width:36em}
 .join ul{margin:12px 0 22px;padding-left:20px;color:#F6F2E9}
@@ -210,14 +212,13 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
       <div>
         <h2 id="joinCommunity">📬 Join our Community</h2>
         <p>Get our free monthly wellness calendar by email. Unsubscribe anytime.</p>
-        <p class="fb-link">Also join our <a class="fb-a" href="https://www.facebook.com/groups/springhillwellnesscollective" target="_blank" rel="noopener"><svg class="fb-icon" viewBox="0 0 512 512" aria-hidden="true"><!-- Font Awesome Free icon, CC BY 4.0, fontawesome.com --><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>Facebook group</a></p>
       </div>
       <a class="btn btn-join" id="joinCommunityBtn" href="#" target="_blank" rel="noopener">Join our Community</a>
     </section>
 
     <div class="prac-callout">
       <p>🌱 <strong>Are you a practitioner or wellness business?</strong><br>Get listed and share your events with the public, free.</p>
-      <a class="btn btn-prac" href="#joinHeading">Go to the Practitioner section ↓</a>
+      <a class="btn btn-prac" href="#joinHeading">Go to the Practitioner section&nbsp;↓</a>
     </div>
 
     <section aria-labelledby="upcomingHeading">
@@ -231,6 +232,8 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
       </div>
       <div id="events" aria-live="polite"><p class="empty">Loading events…</p></div>
     </section>
+
+    <p class="fb-cta">Join the conversation in our <a class="fb-a" href="https://www.facebook.com/groups/springhillwellnesscollective" target="_blank" rel="noopener"><svg class="fb-icon" viewBox="0 0 512 512" aria-hidden="true"><!-- Font Awesome Free icon, CC BY 4.0, fontawesome.com --><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>Facebook group</a></p>
 
     <section class="join" aria-labelledby="joinHeading">
       <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
