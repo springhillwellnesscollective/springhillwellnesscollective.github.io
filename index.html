@@ -61,6 +61,14 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .stamp .dow{display:block;font-family:var(--body);font-size:15px;color:var(--soft)}
 .featured .stamp .mo{color:var(--gold)}
 
+/* Join our Community */
+.community{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:24px 28px;margin:0 0 56px}
+.community h2{font-family:var(--display);font-weight:700;font-size:26px;margin:0 0 6px}
+.community p{margin:0;color:var(--soft);max-width:34em}
+.btn-join{background:var(--gold);border-color:var(--gold);color:#fff}
+.btn-join:hover{background:#8E6522;border-color:#8E6522}
+@media (max-width:640px){.community{padding:22px}.btn-join{width:100%;justify-content:center}}
+
 /* Events */
 .sec-head{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:6px}
 .sec-head h2{font-family:var(--display);font-weight:700;font-size:30px;margin:0}
@@ -185,6 +193,14 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
   <main>
     <div id="featured"></div>
 
+    <section class="community" aria-labelledby="joinCommunity">
+      <div>
+        <h2 id="joinCommunity">📬 Join our Community</h2>
+        <p>Get our free monthly community calendar by email: the Collective Meetup plus other local wellness events. Unsubscribe anytime.</p>
+      </div>
+      <a class="btn btn-join" id="joinCommunityBtn" href="#" target="_blank" rel="noopener">Join our Community</a>
+    </section>
+
     <section aria-labelledby="upcomingHeading">
       <div class="sec-head">
         <h2 id="upcomingHeading">Other Local Wellness Events</h2>
@@ -231,6 +247,7 @@ const CONFIG = {
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform",
   eventsUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform?usp=pp_url&entry.1232648003=%F0%9F%93%85+Add+my+classes+or+events+to+the+community+calendar",
   speakUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd3J4zpegIZDZ92iWAhalLJDdwYPwyyriKv_zvfMQM_tMF9vw/viewform?usp=pp_url&entry.1232648003=%F0%9F%8E%A4+Share+your+expertise+as+a+featured+speaker+at+our+monthly+meetup",
+  joinUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfVGAsW2w-APAee060RQPi_BmTLlXUMO3SwZBSJg54J6ZHGlg/viewform",
   pageUrl: "https://springhillwellnesscollective.github.io",
   meetupType: "Collective Meetup",
   nextMonthFromDay: 25,  // "Print next month" appears from this day of the month
@@ -240,6 +257,7 @@ const CONFIG = {
 /* ================================== */
 
 const $ = id => document.getElementById(id);
+$("joinCommunityBtn").href = CONFIG.joinUrl;
 $("eventsBtn").href = CONFIG.eventsUrl;
 $("speakBtn").href = CONFIG.speakUrl;
 
@@ -436,6 +454,12 @@ async function load(){
     if(!res.ok) throw new Error(res.status);
     ALL=normalize(parseCSV(await res.text()));
     renderAll();
+    const q=new URLSearchParams(location.search).get("print");
+    if(q){
+      const now=new Date(); let y=now.getFullYear(), m=now.getMonth();
+      const mm=q.match(/^(\d{4})-(\d{1,2})$/); if(mm){ y=+mm[1]; m=+mm[2]-1; }
+      setTimeout(()=>printMonth(y,m),800);
+    }
   }catch(err){
     $("events").innerHTML=`<div class="empty"><p>Events couldn't load right now. Please refresh the page.</p></div>`;
     renderPrints();
