@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spring Hill Wellness Collective | Community Wellness Calendar</title>
+<title>Other Wellness Events | Spring Hill Wellness Collective</title>
 <meta name="description" content="A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events around Spring Hill, Florida.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://springhillwellnesscollective.github.io/">
+<meta property="og:url" content="https://springhillwellnesscollective.github.io/events.html">
 <meta property="og:title" content="Spring Hill Wellness Collective">
 <meta property="og:description" content="A free monthly wellness meetup, plus other local wellness events around Spring Hill.">
 <meta property="og:image" content="https://springhillwellnesscollective.github.io/share.png">
@@ -74,6 +74,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 .see-events{margin:22px 0 0;text-align:center}
 @media (max-width:640px){.see-all{width:100%;justify-content:center;text-align:center;padding:10px 16px;line-height:1.3}}
 
+.events-main{padding-top:44px}
 /* Featured meetup */
 .featured{position:relative;margin:-56px 0 56px;background:var(--surface);border-radius:20px;box-shadow:0 10px 30px rgba(31,63,43,.12);border-top:6px solid var(--gold);padding:30px 32px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
 .featured.soon{grid-template-columns:minmax(0,1fr)}
@@ -232,7 +233,7 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
 }
 </style>
 </head>
-<body data-page="home">
+<body data-page="events">
 <header class="hero">
   <svg class="leaves" viewBox="0 0 400 420" aria-hidden="true">
     <g fill="#F6F2E9">
@@ -250,9 +251,9 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
     <nav class="topnav" aria-label="Main">
       <a class="brand" href="index.html">Spring Hill<br>Wellness Collective</a>
       <div class="links">
-        <a href="index.html" aria-current="page">Home</a>
+        <a href="index.html">Home</a>
         <a href="meetups.html">Monthly Meetups</a>
-        <a href="events.html">Other Wellness Events</a>
+        <a href="events.html" aria-current="page">Other Wellness Events</a>
       </div>
       <a class="nav-prac" href="index.html#joinHeading">For Practitioners</a>
       <a class="nav-join js-join" href="#" target="_blank" rel="noopener">Join our Community</a>
@@ -266,55 +267,29 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
     </nav>
   </div>
   <div class="wrap">
-    <p class="kicker">Community wellness calendar</p>
-    <h1>Spring Hill Wellness Collective</h1>
-    <p>A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events happening around Spring Hill.</p>
+    <p class="kicker">Classes, workshops &amp; more</p>
+    <h1>Other Wellness Events</h1>
+    <p>Wellness events happening around Spring Hill, hosted by local practitioners and wellness businesses. Register with the host directly.</p>
   </div>
 </header>
 
 <div class="wrap">
-  <main>
-    <div id="featured"></div>
-
-    <section class="community" aria-labelledby="joinCommunity">
-      <div>
-        <h2 id="joinCommunity">📬 Join our Community</h2>
-        <p>Get our free monthly wellness calendar by email. Unsubscribe anytime.</p>
-      </div>
-      <a class="btn btn-join" id="joinCommunityBtn" href="#" target="_blank" rel="noopener">Join our Community</a>
-    </section>
-
-    <div class="prac-callout">
-      <p>🌱 <strong>Are you a practitioner or wellness business?</strong><br>Get listed and share your events with the public, free.</p>
-      <a class="btn btn-prac" href="#joinHeading">Go to the Practitioner section&nbsp;↓</a>
-    </div>
-
+  <main class="events-main">
     <section aria-labelledby="upcomingHeading">
       <div class="sec-head">
-        <h2 id="upcomingHeading">Other Local Wellness Events</h2>
-        <p class="sub">Coming up soon, hosted by local practitioners and wellness businesses.</p>
+        <h2 id="upcomingHeading">Upcoming events</h2>
+        <div class="toolbar">
+          <div class="filters" id="filters" role="group" aria-label="Filter events"></div>
+          <div class="prints" id="prints"></div>
+        </div>
       </div>
       <div id="events" aria-live="polite"><p class="empty">Loading events…</p></div>
     </section>
 
-    <p class="fb-cta">Join the conversation in our <a class="fb-a" href="https://www.facebook.com/groups/springhillwellnesscollective" target="_blank" rel="noopener"><svg class="fb-icon" viewBox="0 0 512 512" aria-hidden="true"><!-- Font Awesome Free icon, CC BY 4.0, fontawesome.com --><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>Facebook group</a></p>
-
-    <section class="join" aria-labelledby="joinHeading">
-      <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
-      <p>The Collective is a collaboration. Choose what you'd like to do:</p>
-      <div class="join-cards">
-        <div class="join-card">
-          <h3>🗓️ Add your events</h3>
-          <p>List your own events, classes, and workshops on this community calendar. Free advertising to the public and this community.</p>
-          <a class="btn" id="eventsBtn" href="#">Add your events</a>
-        </div>
-        <div class="join-card">
-          <h3>🎤 Share your expertise</h3>
-          <p>Teach our community as the featured speaker at our Free monthly Collective Meetup!</p>
-          <a class="btn" id="speakBtn" href="#">Share your expertise</a>
-        </div>
-      </div>
-    </section>
+    <div class="prac-callout" style="margin:44px 0 0">
+      <p>🌱 <strong>Are you a practitioner or wellness business?</strong><br>List your classes, workshops &amp; events here, free.</p>
+      <a class="btn btn-prac" id="eventsBtn" href="#">Add your events</a>
+    </div>
   </main>
 
   <footer>

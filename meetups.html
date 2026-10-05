@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Spring Hill Wellness Collective | Community Wellness Calendar</title>
+<title>Collective Meetups | Spring Hill Wellness Collective</title>
 <meta name="description" content="A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events around Spring Hill, Florida.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://springhillwellnesscollective.github.io/">
+<meta property="og:url" content="https://springhillwellnesscollective.github.io/meetups.html">
 <meta property="og:title" content="Spring Hill Wellness Collective">
 <meta property="og:description" content="A free monthly wellness meetup, plus other local wellness events around Spring Hill.">
 <meta property="og:image" content="https://springhillwellnesscollective.github.io/share.png">
@@ -71,8 +71,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
 /* See-all meetups button on featured card */
 .see-all{display:inline-flex;align-items:center;gap:8px;margin-top:16px;min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--gold);color:var(--gold);background:transparent;font-weight:700;font-size:16px;text-decoration:none}
 .see-all:hover{background:var(--gold);color:#fff}
-.see-events{margin:22px 0 0;text-align:center}
-@media (max-width:640px){.see-all{width:100%;justify-content:center;text-align:center;padding:10px 16px;line-height:1.3}}
 
 /* Featured meetup */
 .featured{position:relative;margin:-56px 0 56px;background:var(--surface);border-radius:20px;box-shadow:0 10px 30px rgba(31,63,43,.12);border-top:6px solid var(--gold);padding:30px 32px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
@@ -186,22 +184,6 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
   .join{padding:26px 22px}
 }
 
-
-/* Compact event rows */
-.event{gap:20px;padding:16px 0}
-.event h3{font-size:20px;margin:0 0 2px}
-.event .meta{margin:0;font-size:16px;color:var(--soft);line-height:1.4}
-.event .where{margin:2px 0 0;font-size:15px;color:var(--soft);line-height:1.4}
-.event .labels{gap:6px;margin:6px 0 6px}
-.event .lbl{font-size:12px;letter-spacing:.02em;padding:3px 9px}
-.event .desc{font-size:16px;line-height:1.45}
-.event .more{font-size:15px;margin:0;padding:2px 0}
-.event .links{gap:4px 18px;margin-top:6px;font-size:16px}
-.event .links a{min-height:38px}
-.event .btn-reg{min-height:38px;padding:0 16px;font-size:15px}
-.event .stamp .day{font-size:40px}
-@media (max-width:640px){.event{padding:14px 0;gap:2px}.event .stamp .day{font-size:26px}}
-
 /* Print handout */
 #printSheet{display:none}
 @page{size:letter;margin:0.5in}
@@ -230,9 +212,39 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
   .p-foot svg{width:72pt;height:72pt}
   .p-fine{font-size:8.5pt;color:#5A615C;margin-top:12pt;border-top:.75pt solid #CFC6B2;padding-top:6pt}
 }
+
+/* Meetups page */
+.intro-card{position:relative;margin:-56px 0 40px;background:var(--surface);border-radius:20px;box-shadow:0 10px 30px rgba(31,63,43,.12);border-top:6px solid var(--gold);padding:28px 32px}
+.intro-card h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.6vw,32px);margin:0 0 8px}
+.intro-card p{margin:0 0 10px;color:var(--soft)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.facts li{background:var(--bg);border:1.5px solid var(--rule);border-radius:999px;padding:6px 14px;font-weight:600;font-size:16px}
+.slots-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:8px}
+.slots-head h2{font-family:var(--display);font-weight:700;font-size:30px;margin:0}
+.open-count{font-weight:700;color:var(--gold);font-size:18px;margin:0}
+.slot{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid var(--rule)}
+.slot h3{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 4px;line-height:1.2}
+.slot p{margin:0;color:var(--soft);font-size:16px}
+.slot .tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;margin-bottom:6px}
+.tag-booked{background:#DCE9DF;color:var(--green-deep)}
+.tag-open{background:#F3E6CC;color:#7A5618}
+.slot.is-open h3{color:var(--soft);font-weight:500}
+.btn-claim{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;background:var(--gold);border:2px solid var(--gold);color:#fff;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap}
+.btn-claim:hover{background:#8E6522;border-color:#8E6522}
+.slot .cal{font-weight:600;font-size:16px;white-space:nowrap}
+.prac-note{margin:40px 0 0;background:var(--green);color:#F6F2E9;border-radius:20px;padding:30px 32px}
+.prac-note h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.6vw,30px);margin:0 0 8px}
+.prac-note p{margin:0 0 16px;color:#E4DECF;max-width:38em}
+@media (max-width:640px){
+  .intro-card,.prac-note{padding:22px 20px}
+  .slot{grid-template-columns:1fr;gap:8px}
+  .slot .stamp{display:flex;align-items:baseline;gap:8px;width:auto;text-align:left}
+  .slot .stamp .day{font-size:30px;margin:0}
+  .btn-claim{width:100%}
+}
 </style>
 </head>
-<body data-page="home">
+<body>
 <header class="hero">
   <svg class="leaves" viewBox="0 0 400 420" aria-hidden="true">
     <g fill="#F6F2E9">
@@ -250,8 +262,8 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
     <nav class="topnav" aria-label="Main">
       <a class="brand" href="index.html">Spring Hill<br>Wellness Collective</a>
       <div class="links">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="meetups.html">Monthly Meetups</a>
+        <a href="index.html">Home</a>
+        <a href="meetups.html" aria-current="page">Monthly Meetups</a>
         <a href="events.html">Other Wellness Events</a>
       </div>
       <a class="nav-prac" href="index.html#joinHeading">For Practitioners</a>
@@ -266,65 +278,46 @@ footer p:last-child{font-size:23px;font-weight:600;color:var(--ink)}
     </nav>
   </div>
   <div class="wrap">
-    <p class="kicker">Community wellness calendar</p>
-    <h1>Spring Hill Wellness Collective</h1>
-    <p>A free monthly meetup where local practitioners teach natural ways to support your health, plus other wellness events happening around Spring Hill.</p>
+    <p class="kicker">Free monthly gatherings</p>
+    <h1>Collective Meetups</h1>
+    <p>Every month, a local practitioner or wellness business shares their knowledge with our community. Come learn, connect, and meet your neighbors.</p>
   </div>
 </header>
 
 <div class="wrap">
   <main>
-    <div id="featured"></div>
-
-    <section class="community" aria-labelledby="joinCommunity">
-      <div>
-        <h2 id="joinCommunity">📬 Join our Community</h2>
-        <p>Get our free monthly wellness calendar by email. Unsubscribe anytime.</p>
-      </div>
-      <a class="btn btn-join" id="joinCommunityBtn" href="#" target="_blank" rel="noopener">Join our Community</a>
+    <section class="intro-card" aria-labelledby="howHeading">
+      <h2 id="howHeading">How it works</h2>
+      <p>Each meetup features a local practitioner, farmer, homesteader, or wellness business teaching something practical and natural. Talks are about 95% education, with time to connect afterward.</p>
+      <ul class="facts">
+        <li>📅 2nd Wednesday of each month</li>
+        <li>🕡 6:30–8:00 PM</li>
+        <li>💚 Always free</li>
+        <li>📍 Location varies, listed below</li>
+      </ul>
     </section>
 
-    <div class="prac-callout">
-      <p>🌱 <strong>Are you a practitioner or wellness business?</strong><br>Get listed and share your events with the public, free.</p>
-      <a class="btn btn-prac" href="#joinHeading">Go to the Practitioner section&nbsp;↓</a>
-    </div>
-
-    <section aria-labelledby="upcomingHeading">
-      <div class="sec-head">
-        <h2 id="upcomingHeading">Other Local Wellness Events</h2>
-        <p class="sub">Coming up soon, hosted by local practitioners and wellness businesses.</p>
+    <section aria-labelledby="slotsHeading">
+      <div class="slots-head">
+        <h2 id="slotsHeading">The next 12 months</h2>
+        <p class="open-count" id="openCount"></p>
       </div>
-      <div id="events" aria-live="polite"><p class="empty">Loading events…</p></div>
+      <div id="slots" aria-live="polite"><p class="empty">Loading meetups…</p></div>
     </section>
 
-    <p class="fb-cta">Join the conversation in our <a class="fb-a" href="https://www.facebook.com/groups/springhillwellnesscollective" target="_blank" rel="noopener"><svg class="fb-icon" viewBox="0 0 512 512" aria-hidden="true"><!-- Font Awesome Free icon, CC BY 4.0, fontawesome.com --><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>Facebook group</a></p>
-
-    <section class="join" aria-labelledby="joinHeading">
-      <h2 id="joinHeading">Are you a practitioner or wellness business?</h2>
-      <p>The Collective is a collaboration. Choose what you'd like to do:</p>
-      <div class="join-cards">
-        <div class="join-card">
-          <h3>🗓️ Add your events</h3>
-          <p>List your own events, classes, and workshops on this community calendar. Free advertising to the public and this community.</p>
-          <a class="btn" id="eventsBtn" href="#">Add your events</a>
-        </div>
-        <div class="join-card">
-          <h3>🎤 Share your expertise</h3>
-          <p>Teach our community as the featured speaker at our Free monthly Collective Meetup!</p>
-          <a class="btn" id="speakBtn" href="#">Share your expertise</a>
-        </div>
-      </div>
+    <section class="prac-note" aria-labelledby="pracHeading">
+      <h2 id="pracHeading">Have wellness knowledge to share?</h2>
+      <p>Practitioners, wellness businesses, farmers, homesteaders, herbalists, and teachers: claim any open date above and share your expertise with our community, free.</p>
+      <a class="btn-claim" id="speakBtn2" href="#">Share your expertise</a>
     </section>
   </main>
 
   <footer>
-    <p>Other Local Wellness Events are hosted independently by local practitioners and wellness businesses. Information shared is educational and not a substitute for medical advice.</p>
+    <p>Information shared at Collective Meetups is educational and not a substitute for medical advice.</p>
     <p>Questions? Text Charlie at 727-744-0838 or email <a href="mailto:springhillwellnesscollective@gmail.com">springhillwellnesscollective@gmail.com</a>.</p>
     <p class="fb-line">Join the conversation in our <a class="fb-a" href="https://www.facebook.com/groups/springhillwellnesscollective" target="_blank" rel="noopener"><svg class="fb-icon" viewBox="0 0 512 512" aria-hidden="true"><!-- Font Awesome Free icon, CC BY 4.0, fontawesome.com --><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>Facebook group</a></p>
   </footer>
 </div>
-
-<div id="printSheet" aria-hidden="true"></div>
 
 <script>
 /* ============ SETTINGS ============ */
@@ -339,7 +332,6 @@ const CONFIG = {
   meetupType: "Collective Meetup",
   firstMeetup: "2026-11-11",  // first 2nd-Wednesday meetup shown on the Meetups page
   meetupMonthsShown: 12,
-  homeEventsShown: 5,     // events previewed on the home page
   nextMonthFromDay: 25,  // "Print next month" appears from this day of the month
   maxPrintRows: 12,      // events that fit on the one-page handout; the rest are on the web page
   timeZone: "America/New_York"
@@ -347,12 +339,7 @@ const CONFIG = {
 /* ================================== */
 
 const $ = id => document.getElementById(id);
-const PAGE=document.body.dataset.page||"home";
-const setHref=(id,u)=>{ const el=$(id); if(el) el.href=u; };
-setHref("joinCommunityBtn",CONFIG.joinUrl);
 document.querySelectorAll(".js-join").forEach(a=>a.href=CONFIG.joinUrl);
-setHref("eventsBtn",CONFIG.eventsUrl);
-setHref("speakBtn",CONFIG.speakUrl);
 
 function parseCSV(text){
   const rows=[]; let row=[], field="", q=false;
@@ -433,7 +420,7 @@ function normalize(rows){
     .sort((a,b)=>a.dateObj-b.dateObj||(to24(a.start)||"").localeCompare(to24(b.start)||""));
 }
 
-function seeAllBtn(){ const n=openCount(); return `<a class="see-all" href="meetups.html">📅 See all upcoming meetups${n?` (${n} date${n===1?"":"s"} open)`:""}</a>`; }
+function _unused(){ const n=openCount(); return `<a class="see-all" href="meetups.html">📅 See all upcoming meetups${n?` (${n} date${n===1?"":"s"} open)`:""}</a>`; }
 function renderFeatured(){
   const f=ALL.find(isMeetup);
   if(!f){
@@ -462,126 +449,35 @@ function renderFeatured(){
   </section>`;
 }
 
-function renderFilters(){
-  const others=ALL.filter(e=>!isMeetup(e));
-  const opts=["All"]; if(others.some(isOnline)&&others.some(e=>!isOnline(e))) opts.push("Online");
-  $("filters").innerHTML=opts.length>1?opts.map(o=>`<button type="button" class="chip" aria-pressed="${o===FILTER}" data-f="${o}">${o==="All"?"All events":o}</button>`).join(""):"";
-  $("filters").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{FILTER=b.dataset.f;renderFilters();renderList();}));
-}
 
-function contactHtml(c){
-  if(!c) return ""; const u=safeUrl(c);
-  return u?`<a href="${esc(u)}" target="_blank" rel="noopener">Host website</a>`:`<span class="plain">Questions: ${esc(c)}</span>`;
-}
-
-function renderList(){
-  const full=ALL.filter(e=>!isMeetup(e)).filter(e=>FILTER==="All"||isOnline(e));
-  const list=PAGE==="home"?full.slice(0,CONFIG.homeEventsShown):full;
-  if(!list.length){
-    $("events").innerHTML=`<div class="empty"><p>No other local events listed yet.</p><p>Practitioners and wellness businesses: <a href="${esc(CONFIG.eventsUrl)}">add your events free</a>.</p></div>`;
-    return;
-  }
-  let html="", last="";
-  list.forEach((e,i)=>{
-    const key=e.dateObj.getFullYear()+"-"+e.dateObj.getMonth();
-    if(key!==last){ html+=`<h3 class="month">${MONTHS_LONG[e.dateObj.getMonth()]} ${e.dateObj.getFullYear()}</h3>`; last=key; }
-    const lblWhere=isOnline(e)?`<span class="lbl lbl-online">🖥️ Online</span>`:`<span class="lbl lbl-inperson">📍 In person</span>`;
-    const lblReg=e.link?`<span class="lbl lbl-reg">Registration required</span>`:`<span class="lbl lbl-drop">Just show up</span>`;
-    const when=e.repeats==="weekly"?`Every ${DAYS[e.dateObj.getDay()]}`:"";
-    const meta=[esc(e.host),when,esc(timeStr(e)),esc(e.cost)].filter(Boolean).join(" · ");
-    html+=`<article class="event">
-      ${stamp(e.dateObj)}
-      <div>
-        <h3>${esc(e.title)}</h3>
-        <p class="meta">${meta}</p>
-        ${!isOnline(e)&&e.location?`<p class="where">${esc(e.location)}</p>`:""}
-        <div class="labels">${lblWhere}${lblReg}</div>
-        ${e.description?`<p class="desc" id="d${i}">${esc(e.description)}</p><button class="more" type="button" data-t="d${i}" hidden>Read more</button>`:""}
-        <div class="links">
-          ${e.link?`<a class="btn-reg" href="${esc(e.link)}" target="_blank" rel="noopener">Register</a>`:""}
-          <a href="${esc(gcalLink(e))}" target="_blank" rel="noopener">Add to my calendar</a>
-          ${contactHtml(e.contact)}
-        </div>
-      </div>
+$("speakBtn2").href=CONFIG.speakUrl;
+function renderSlots(){
+  const slots=meetupSlots();
+  const open=slots.filter(x=>!x.booked).length;
+  $("openCount").textContent=open?`${open} of ${slots.length} dates still open`:"Every date is booked!";
+  $("slots").innerHTML=slots.map(x=>{
+    const d=x.date, b=x.booked;
+    if(b) return `<article class="slot">
+      ${stamp(d)}
+      <div><span class="tag tag-booked">BOOKED</span><h3>${esc(b.title)}</h3>
+        <p>${b.host?esc(b.host)+"<br>":""}${esc(timeStr(b)||"6:30–8:00 PM")} · ${b.location?esc(b.location):"Location to be announced"}</p></div>
+      <a class="cal" href="${esc(gcalLink(b))}" target="_blank" rel="noopener">Add to my calendar</a>
     </article>`;
-  });
-  if(PAGE==="home") html+=`<p class="see-events"><a class="see-all" href="events.html">See all ${full.length} upcoming event${full.length===1?"":"s"} →</a></p>`;
-  $("events").innerHTML=html;
-  requestAnimationFrame(()=>{
-    $("events").querySelectorAll(".more").forEach(btn=>{
-      const d=$(btn.dataset.t);
-      if(d.scrollHeight>d.clientHeight+2) btn.hidden=false;
-      btn.addEventListener("click",()=>{ const open=d.classList.toggle("open"); btn.textContent=open?"Show less":"Read more"; });
-    });
-  });
-}
-
-/* ---------- Printable monthly handout ---------- */
-function qrSvg(url){
-  try{ const q=qrcode(0,"M"); q.addData(url); q.make(); return q.createSvgTag({cellSize:3,margin:0,scalable:true}); }catch(e){ return ""; }
-}
-function eventsInMonth(y,m){
-  const end=new Date(y,m+1,0);
-  return ALL.filter(e=>{
-    if(e.repeats==="weekly") return e.dateObj<=end;
-    return e.dateObj.getFullYear()===y&&e.dateObj.getMonth()===m;
-  });
-}
-function printMonth(y,m){
-  const items=eventsInMonth(y,m);
-  const meet=items.find(isMeetup);
-  const allOthers=items.filter(e=>!isMeetup(e));
-  const others=allOthers.slice(0,CONFIG.maxPrintRows);
-  const extra=allOthers.length-others.length;
-  const shortUrl=esc(CONFIG.pageUrl.replace(/^https?:\/\//,""));
-  const rows=others.map(e=>{
-    const d=e.repeats==="weekly"?`Every ${DAYS[e.dateObj.getDay()]}`:`${DAYS[e.dateObj.getDay()]} ${MONTHS[e.dateObj.getMonth()]} ${e.dateObj.getDate()}`;
-    return `<tr><td>${esc(d)}<br>${esc(timeStr(e))}</td><td><strong>${esc(e.title)}</strong><br><span class="p-lbl">${isOnline(e)?"ONLINE":"IN PERSON"} · ${e.link?"Registration required":"Just show up"}</span>${e.cost?`<br>${esc(e.cost)}`:""}</td><td>${esc(e.host)}</td><td>${esc(e.location)}</td></tr>`;
+    return `<article class="slot is-open">
+      ${stamp(d)}
+      <div><span class="tag tag-open">OPEN</span><h3>${MONTHS_LONG[d.getMonth()]} ${d.getDate()} is open for a speaker</h3>
+        <p>6:30–8:00 PM</p></div>
+      <a class="btn-claim" href="${esc(CONFIG.speakUrl)}" target="_blank" rel="noopener">Claim this date</a>
+    </article>`;
   }).join("");
-  $("printSheet").innerHTML=`
-    <div class="p-head"><h1>Spring Hill Wellness Collective</h1><span>${MONTHS_LONG[m]} ${y}</span></div>
-    <div class="p-meet">
-      <div class="lbl">The Collective Meetup</div>
-      ${meet?`<h2>${esc(meet.title)}</h2>${meet.host?`<p><strong>${esc(meet.host)}</strong></p>`:""}<p><strong>${isOnline(meet)?"ONLINE":"IN PERSON"} · Free · Just show up</strong></p><p>${esc(whenLine(meet))}</p><p>${meet.location?esc(meet.location):"Location to be announced"}</p>`
-            :`<h2>Coming soon</h2><p>See the date and topic at <a href="${esc(CONFIG.pageUrl)}" style="color:#F6F2E9">${shortUrl}</a></p>`}
-    </div>
-    <h3 class="p-sec">Other Local Wellness Events</h3>
-    <p class="p-note">Hosted by local practitioners and wellness businesses. Registration links for every event: <a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a> (or scan the QR code below).</p>
-    ${rows?`<table><thead><tr><th style="width:18%">When</th><th>Event</th><th style="width:22%">Host</th><th style="width:24%">Where</th></tr></thead><tbody>${rows}</tbody></table>`:`<p>No other events listed yet for ${MONTHS_LONG[m]}.</p>`}
-    ${extra>0?`<p class="p-more">Plus ${extra} more event${extra===1?"":"s"} this month. See them all at <a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a> or scan the QR code below.</p>`:""}
-    <div class="p-foot">
-      <div>${qrSvg(CONFIG.pageUrl)}<span><strong>See all events</strong><br><a href="${esc(CONFIG.pageUrl)}">${shortUrl}</a></span></div>
-      <div>${qrSvg(CONFIG.eventsUrl)}<span><strong>Practitioners:</strong><br><a href="${esc(CONFIG.eventsUrl)}">add your events</a> to this calendar, free</span></div>
-    </div>
-    <p class="p-fine">Other Local Wellness Events are hosted independently. Information shared is educational and not a substitute for medical advice.</p>`;
-  window.print();
 }
-function renderPrints(){
-  const now=new Date(); const y=now.getFullYear(), m=now.getMonth();
-  const btns=[`<button type="button" class="chip chip-print" data-y="${y}" data-m="${m}">Print ${MONTHS_LONG[m]} calendar</button>`];
-  if(now.getDate()>=CONFIG.nextMonthFromDay){ const n=new Date(y,m+1,1); btns.push(`<button type="button" class="chip chip-print" data-y="${n.getFullYear()}" data-m="${n.getMonth()}">Print ${MONTHS_LONG[n.getMonth()]} calendar</button>`); }
-  $("prints").innerHTML=btns.join("");
-  $("prints").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>printMonth(+b.dataset.y,+b.dataset.m)));
-}
-
-function renderAll(){ if($("featured")) renderFeatured(); if($("filters")) renderFilters(); renderList(); if($("prints")) renderPrints(); }
-
 async function load(){
   try{
     const res=await fetch(CONFIG.csvUrl+(CONFIG.csvUrl.includes("?")?"&":"?")+"t="+Date.now());
     if(!res.ok) throw new Error(res.status);
     ALL=normalize(parseCSV(await res.text()));
-    renderAll();
-    const q=new URLSearchParams(location.search).get("print");
-    if(q){
-      const now=new Date(); let y=now.getFullYear(), m=now.getMonth();
-      const mm=q.match(/^(\d{4})-(\d{1,2})$/); if(mm){ y=+mm[1]; m=+mm[2]-1; }
-      setTimeout(()=>printMonth(y,m),800);
-    }
-  }catch(err){
-    $("events").innerHTML=`<div class="empty"><p>Events couldn't load right now. Please refresh the page.</p></div>`;
-    if($("featured")) renderFeatured(); if($("prints")) renderPrints();
-  }
+  }catch(err){ ALL=[]; }
+  renderSlots();
 }
 load();
 </script>
